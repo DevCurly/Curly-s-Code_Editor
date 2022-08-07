@@ -12,13 +12,7 @@
 #os
 #sys
 #time
-#Automatically install modules
-import pip
-pip.main(['install', 'tkinter'])
-pip.main(['install', 'subprocess'])
-pip.main(['install', 'os'])
-pip.main(['install', 'sys'])
-pip.main(['install', 'time'])
+
 #
 #
 #
@@ -52,8 +46,7 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 if sys.version_info[0] < 3:
     print("This program requires Python 3.6 or higher.")
     sys.exit(1)
-sd = f'pip install tkinter'
-zx = subprocess.Popen(sd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+os.command("pip install tkinter")
 
 #Variabls
 Code_Editor = Tk()
