@@ -1,4 +1,5 @@
 # Curly-s-Code_Editor
+
 A simple  code editor for alot  of programming  
 
 ![Captura](https://user-images.githubusercontent.com/92770885/174711940-deaefa0a-39ee-4af7-a7a5-fc9a786faa32.PNG)
@@ -18,15 +19,13 @@ Make it have the functions what you need!
 
 
 # Exports
-Export your code in many types of files and not just python
-When you save the file add the extension what you need for the type (Make a C file by putting .c at the end)
-
+Export in any format you want without any problem!
 
 
 
 
 # Requirements
-
+(Only for the main.py script, not the builded proyect)
   # Minimal
     Python
     Tkinter
