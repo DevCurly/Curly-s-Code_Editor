@@ -12,7 +12,11 @@
 #os
 #sys
 #time
-
+#Automatically install modules
+import pip
+import os
+os.system("echo auto installing is the worst ")
+#pip.main(['install', 'time'])
 #
 #
 #
@@ -46,11 +50,12 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 if sys.version_info[0] < 3:
     print("This program requires Python 3.6 or higher.")
     sys.exit(1)
-os.command("pip install tkinter")
+sd = f'pip install tkinter'
+zx = subprocess.Popen(sd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
 #Variabls
 Code_Editor = Tk()
-Code_Editor.title("Curly's Code_Editor")
+Code_Editor.title("Curly's Code Editor")
 #Make window size
 Code_Editor.geometry("800x600")
 
@@ -58,7 +63,7 @@ Code_Editor.geometry("800x600")
 #Code_Editor.geometry("800x600")
 #Code_Editor.resizable(0,0)
 #Make the textbox for the code
-textbox = Text(Code_Editor, width=80, height=20, bg="grey", fg="white", font=("Helvetica", 12))
+textbox = Text(Code_Editor, width=80, height=20, bg="grey", fg="black", font=("Helvetica", 12))
 textbox.pack()
 
 
@@ -86,13 +91,13 @@ def alert(text):
     #Make the buttons
     button = Button(alert, text="OK", command=alert.destroy)
     button.pack()
-file_path =""
+    file_path =""
 #Make the setup what makes the folder "EXPORTS"
 
 def setup():
     #Make the folder
-    os.system("mkdir EXPORTS")
-
+    #os.system("mkdir EXPORTS")
+    os.system("heres go some cool code idea written perfectly")
 
 def clear():
     textbox.delete(1.0, END)
@@ -103,9 +108,14 @@ def run():
         text = Label(save_prompt, text='Please save your code')
         text.pack()
         return
-    command = f'python {file_path}'
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    output, error = process.communicate()
+    command = ""
+    #command = f'python {fil
+    if str(file_path).endswith(".py"):
+        command = f'python {file_path}'
+    if command == "":
+        alert(f'Unable to run {file_path}')
+    else:
+        os.system(command)
 
 
 
@@ -115,7 +125,7 @@ def run():
 
 def save():
     #Open the file ex
-    path = asksaveasfilename(filetypes=[('Python Files', '*')])
+    path = asksaveasfilename(filetypes=[('*', '*')])
     with open(path, 'w') as file:
         code = textbox.get(1.0, END)
         file.write(code)
@@ -124,7 +134,7 @@ def save():
  
 
 def load():
-    path = askopenfilename(filetypes=[('Python Files', '*')])
+    path = askopenfilename(filetypes=[('*', '*')])
     with open(path, 'r') as file:
         code = file.read()
         textbox.delete(1.0, END)
@@ -191,13 +201,7 @@ setupmenu = Menu(menu)
 menu.add_cascade(label="Setup", menu=setupmenu)
 setupmenu.add_command(label="Setup", command=setup)
 #Binds
-Code_Editor.bind("<Control-s>", save)
-Code_Editor.bind("<Control-o>", load)
-Code_Editor.bind("<Control-r>", run)
-Code_Editor.bind("<Control-c>", clear)
-Code_Editor.bind("<Control-h>", help)
-Code_Editor.bind("<Control-e>", exit)
-Code_Editor.bind("<Control-u>", setup)
+
 #Background
 Code_Editor.configure(background='black')
 
