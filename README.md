@@ -25,12 +25,7 @@ Export in any format you want without any problem!
 
 
 # Requirements
-(Only for the main.py script, not the builded proyect)
   # Minimal
     Python
     Tkinter
-    10kb
-  # Recommended
-    Python
-    Tkinter
-    1MB
+
